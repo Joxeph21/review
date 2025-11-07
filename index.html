@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
+
+    <title>Share Your Experience – Joseph Adenugba</title>
+  </head>
+  <body>
+    <section id="container">
+      <div>
+        <h2>Share Your Experience</h2>
+        <p>
+          How would you describe your experience working with me? <br />
+          I’d love to hear your thoughts! 🫡
+        </p>
+      </div>
+
+      <form id="form-container" >
+        <div class="input-container">
+          <label for="title">Title / Role</label>
+          <input
+            type="text"
+            placeholder="Ex: Founder @XYZ"
+            name="title"
+            id="role"
+          />
+        </div>
+
+        <div class="input-container">
+          <label for="content">Review</label>
+          <textarea
+            placeholder="Describe experience..."
+            name="content"
+            id="content"
+          ></textarea>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 4px">
+          <input
+            style="cursor: pointer; accent-color: #fff500"
+            type="checkbox"
+            name="add_Social"
+            id="addSocial"
+          />
+          <label for="add_Social"
+            >Would you like to add your socials? (optional)</label
+          >
+        </div>
+
+        <section id="socials-section">
+          <!-- <div class="social-container">
+            <select name="social-chooser">
+              <option value="linkedin">Linkedin</option>
+            </select>
+            <input type="text" placeholder="Enter socials url..." />
+            <button
+              title="Remove socials"
+              aria-label="Remove Social"
+              id="close-btn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4"
+                />
+              </svg>
+            </button>
+          </div> -->
+          <button style="display: none;" type="button" id="add_social_btn">Add Social</button>
+        </section>
+
+        <button id="submit-btn">Submit Review</button>
+      </form>
+    </section>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/script.js"></script>
+</html>
