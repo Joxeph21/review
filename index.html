@@ -3,23 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Share your experience working with Joseph Adenugba."
+    />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/responsive.css" />
     <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
 
     <title>Share Your Experience – Joseph Adenugba</title>
+
   </head>
   <body>
-    <section id="container">
-      <div>
+    <main id="container">
+      <!-- <div id="toast-container">
+        <div class="toast error">Bad cat</div>
+        <div class="toast success hide">Good cat</div>
+      </div> -->
+      <header>
         <h2>Share Your Experience</h2>
         <p>
           How would you describe your experience working with me? <br />
           I’d love to hear your thoughts! 🫡
         </p>
-      </div>
+      </header>
 
-      <form id="form-container" >
+      <form id="form-container">
+        <input
+          type="file"
+          accept="image/*"
+          id="image-selector"
+          style="display: none"
+        />
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            width: fit-content;
+          "
+        >
+          <div id="upload-status" class="sr-only" aria-live="polite"></div>
+          <label for="image-selector" style="font-weight: 600; font-size: 16px">
+            Profile image
+            <em style="color: #555"> (optional) </em>
+          </label>
+          <figure
+            title="Change Image"
+            aria-label="Change image"
+            id="image-container"
+            aria-live="polite"
+          >
+            <img
+              src="https://ftxzkolsexefileehfct.supabase.co/storage/v1/object/public/avatars/avatar.jpg"
+              alt="user_profile_picture"
+            />
+          </figure>
+          <span
+            aria-hidden="true"
+            style="
+              position: absolute;
+              bottom: 0;
+              left: 30%;
+              padding: 4px;
+              background: white;
+              border-radius: 100%;
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M19 20H5c-1.654 0-3-1.346-3-3V9c0-1.654 1.346-3 3-3h1.586l1-1C8.165 4.421 9.182 4 10 4h4c.818 0 1.835.421 2.414 1l1 1H19c1.654 0 3 1.346 3 3v8c0 1.654-1.346 3-3 3M5 8a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-2a1 1 0 0 1-.707-.293L15 6.414C14.799 6.213 14.285 6 14 6h-4c-.285 0-.799.213-1 .414L7.707 7.707A1 1 0 0 1 7 8zm7 2c1.379 0 2.5 1.121 2.5 2.5S13.379 15 12 15s-2.5-1.121-2.5-2.5S10.621 10 12 10m0-1a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7m6-.301a1.3 1.3 0 1 0 0 2.6a1.3 1.3 0 0 0 0-2.6"
+              />
+            </svg>
+          </span>
+        </div>
+
+        <div class="input-container">
+          <label for="title">Full name</label>
+          <input
+            type="text"
+            placeholder="Ex: Joe doe"
+            name="name"
+            id="name"
+          />
+        </div>
         <div class="input-container">
           <label for="title">Title / Role</label>
           <input
@@ -47,8 +121,9 @@
             id="addSocial"
           />
           <label for="add_Social"
-            >Would you like to add your socials? (optional)</label
-          >
+            >Would you like to add your socials?
+            <em style="color: #555"> (optional) </em>
+          </label>
         </div>
 
         <section id="socials-section">
@@ -75,14 +150,16 @@
               </svg>
             </button>
           </div> -->
-          <button style="display: none;" type="button" id="add_social_btn">Add Social</button>
+          <button style="display: none" type="button" id="add_social_btn">
+            Add Social
+          </button>
         </section>
 
         <button id="submit-btn">Submit Review</button>
       </form>
-    </section>
+    </main>
+    <script type="module" src="/supabase.js"></script>
+    <script src="/toast.js"></script>
+    <script type="module" src="/script.js"></script>
   </body>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="/script.js"></script>
 </html>
