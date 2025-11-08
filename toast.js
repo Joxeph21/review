@@ -19,8 +19,9 @@ export const toast = (() => {
       toastEl.classList.add("hide");
       toastEl.addEventListener("animationend", () => {
         toastEl.remove();
-        container.remove()
-      });
+        
+        // container.remove()
+      }, {once: true});
     }, duration);
   }
 

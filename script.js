@@ -169,6 +169,9 @@ const handleChange = (e) => {
 async function handleFormSubmit(e) {
   e.preventDefault();
 
+  // handleModalOpen()
+
+
   const titleEL = document.querySelector("#role");
   const contentEl = document.querySelector("#content");
   const nameEl = document.querySelector("#name");
@@ -270,8 +273,8 @@ async function handleFormSubmit(e) {
 
     if (error) throw error;
     if (data) {
-      handleModalOpen();
       resetVals();
+      handleModalOpen();
     }
   } catch (error) {
     toast.error(error?.message || "Something went wrong");
@@ -289,6 +292,7 @@ async function handleFormSubmit(e) {
 }
 
 function resetVals() {
+  toast.success("Review submitted..Thanks☺️");
   form.reset();
   values.title = "";
   values.content = "";
@@ -297,7 +301,6 @@ function resetVals() {
   values.avatar = null;
   previewImage.src =
     "https://ftxzkolsexefileehfct.supabase.co/storage/v1/object/public/avatars/avatar.jpg";
-  toast.success("Review submitted..Thanks☺️");
   SocialsContainer.style.display = "none";
   hasSocials = false;
 }
