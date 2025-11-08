@@ -7,6 +7,9 @@ const SocialsContainer = document.querySelector("#socials-section");
 const availableSocials = ["linkedin", "instagram", "x"];
 const addSocialsBtn = document.querySelector("#add_social_btn");
 const form = document.querySelector("#form-container");
+const closeModalBtn = document.querySelector("#close-modal");
+const successModal = document.getElementById("success-container");
+const modal = document.querySelector("#success-container main");
 let hasSocials = false;
 
 const values = {
@@ -26,6 +29,8 @@ const socialRegex = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  closeModalBtn.addEventListener("click", handleModalClose);
+
   document.querySelectorAll("#role, #content, #name").forEach((el) => {
     const { name, value } = el;
     if (name in values && value.trim() !== "") {
@@ -251,13 +256,12 @@ async function handleFormSubmit(e) {
       const { data: url } = supabase.storage
         .from("avatars")
         .getPublicUrl(uploadData.path);
-        if(url){
-
-          reviewData.avatar = url.publicUrl;
-        }
+      if (url) {
+        reviewData.avatar = url.publicUrl;
+      }
     }
 
-    console.log({reviewData});
+    console.log({ reviewData });
 
     const { data, error } = await supabase
       .from("reviews")
@@ -266,6 +270,7 @@ async function handleFormSubmit(e) {
 
     if (error) throw error;
     if (data) {
+      handleModalOpen();
       resetVals();
     }
   } catch (error) {
@@ -308,3 +313,18 @@ async function deleteAvatar(filePath) {
     console.log("File deleted successfully:", data);
   }
 }
+
+const handleModalOpen = () => {
+  modal.classList.remove("hide");
+  successModal.style.display = "flex";
+};
+
+const handleModalClose = () => {
+  modal.classList.add("hide");
+  const onAnimationEnd = () => {
+    successModal.style.display = "none";
+    modal.removeEventListener("animationend", onAnimationEnd);
+  };
+
+  modal.addEventListener("animationend", onAnimationEnd);
+};

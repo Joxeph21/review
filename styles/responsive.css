@@ -1,15 +1,30 @@
-@media (max-width: 480px) {
-  #container {
-    width: 95%;
-    padding: 1.2rem .8rem;
-    margin: 2rem auto;
-
-    h2{
-        font-size: 1.8rem;
-    }
+@media (max-width: 200px) {
+  body {
+    align-items: start;
   }
 }
 
+@media (max-width: 480px) {
+  body {
+    padding: 1rem 0.2rem;
+  }
+  #container {
+    width: 95%;
+    padding: 1.2rem 0.8rem;
+    margin: 2rem auto;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  #success-container {
+    main {
+      max-width: none;
+      width: 90%;
+    }
+  }
+}
 
 @media (min-width: 481px) and (max-width: 768px) {
   #container {
